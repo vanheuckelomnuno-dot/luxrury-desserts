@@ -118,7 +118,7 @@ export default function Footer() {
         {/* Bottom row */}
         <div className="py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-cream/40">
           <div className="flex items-center gap-2">
-            <span>© {new Date().getFullYear()} Maison Dorée.</span>
+            <span suppressHydrationWarning>© {new Date().getFullYear()} Maison Dorée.</span>
             <span>All rights reserved.</span>
           </div>
 
