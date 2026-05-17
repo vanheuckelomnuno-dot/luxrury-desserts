@@ -7,6 +7,21 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
+const particles = [
+  { left: '15%', top: '12%', duration: 3.5, delay: 0 },
+  { left: '35%', top: '45%', duration: 4.2, delay: 0.8 },
+  { left: '55%', top: '25%', duration: 5.1, delay: 1.5 },
+  { left: '75%', top: '60%', duration: 3.8, delay: 2.2 },
+  { left: '20%', top: '75%', duration: 4.7, delay: 0.5 },
+  { left: '45%', top: '15%', duration: 5.5, delay: 1.2 },
+  { left: '65%', top: '80%', duration: 3.2, delay: 2.8 },
+  { left: '85%', top: '35%', duration: 4.9, delay: 0.3 },
+  { left: '10%', top: '55%', duration: 5.8, delay: 1.8 },
+  { left: '50%', top: '90%', duration: 3.6, delay: 2.5 },
+  { left: '80%', top: '70%', duration: 4.3, delay: 0.7 },
+  { left: '30%', top: '30%', duration: 5.0, delay: 1.9 },
+]
+
 const occasions = [
   'Wedding',
   'Birthday',
@@ -73,24 +88,13 @@ export default function Contact() {
         <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] rounded-full bg-blush/30 blur-[160px]" />
         <div className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-gold/15 blur-[100px]" />
         {/* Floating particles */}
-        {[...Array(12)].map((_, i) => (
+        {particles.map((p, i) => (
           <motion.div
             key={i}
             className="absolute w-1 h-1 rounded-full bg-gold/40"
-            style={{
-              left: `${10 + Math.random() * 80}%`,
-              top: `${10 + Math.random() * 80}%`,
-            }}
-            animate={{
-              y: [-10, 10, -10],
-              opacity: [0.3, 0.8, 0.3],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 3,
-              repeat: Infinity,
-              delay: Math.random() * 3,
-              ease: 'easeInOut',
-            }}
+            style={{ left: p.left, top: p.top }}
+            animate={{ y: [-10, 10, -10], opacity: [0.3, 0.8, 0.3] }}
+            transition={{ duration: p.duration, repeat: Infinity, delay: p.delay, ease: 'easeInOut' }}
           />
         ))}
       </div>
