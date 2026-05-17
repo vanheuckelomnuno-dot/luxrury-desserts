@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
 import GlassCard from '@/components/ui/GlassCard'
 import LuxuryButton from '@/components/ui/LuxuryButton'
+import ErrorBoundary from '@/components/providers/ErrorBoundary'
 
 const HeroScene = dynamic(() => import('@/components/three/HeroScene'), {
   ssr: false,
@@ -117,7 +118,9 @@ export default function Hero() {
 
       {/* Three.js Canvas — full background */}
       <div className="absolute inset-0 z-0">
-        <HeroScene mousePosition={mousePos} paused={!isInView} />
+        <ErrorBoundary fallback={<div className="w-full h-full bg-gradient-to-br from-beige via-cream to-blush/30" />}>
+          <HeroScene mousePosition={mousePos} paused={!isInView} />
+        </ErrorBoundary>
       </div>
 
       {/* Content overlay */}

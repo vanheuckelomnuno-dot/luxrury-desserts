@@ -1,12 +1,13 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  transpilePackages: [
+  transpilePackages: ['framer-motion'],
+  serverExternalPackages: [
     'three',
     '@react-three/fiber',
     '@react-three/drei',
     '@react-three/postprocessing',
-    'framer-motion',
+    'react-reconciler',
   ],
 }
 

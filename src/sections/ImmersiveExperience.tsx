@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic'
 import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import ErrorBoundary from '@/components/providers/ErrorBoundary'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -92,7 +93,9 @@ export default function ImmersiveExperience() {
 
       {/* Three.js canvas */}
       <div className="immersive-canvas-wrap absolute inset-0 z-0">
-        <ImmersiveScene mousePosition={mousePos} paused={!isInView} />
+        <ErrorBoundary fallback={<div className="w-full h-full bg-gradient-to-br from-beige to-blush/30" />}>
+          <ImmersiveScene mousePosition={mousePos} paused={!isInView} />
+        </ErrorBoundary>
       </div>
 
       {/* Content overlay */}

@@ -2,33 +2,29 @@
 
 import { Component, ReactNode } from 'react'
 
-export default class ErrorBoundary extends Component<
-  { children: ReactNode },
-  { hasError: boolean; message: string }
-> {
-  constructor(props: { children: ReactNode }) {
+interface Props {
+  children: ReactNode
+  fallback?: ReactNode
+}
+
+export default class ErrorBoundary extends Component<Props, { hasError: boolean }> {
+  constructor(props: Props) {
     super(props)
-    this.state = { hasError: false, message: '' }
+    this.state = { hasError: false }
   }
 
-  static getDerivedStateFromError(error: Error) {
-    return { hasError: true, message: error?.message ?? String(error) }
+  static getDerivedStateFromError() {
+    return { hasError: true }
   }
 
   render() {
     if (this.state.hasError) {
+      if (this.props.fallback) return this.props.fallback
       return (
         <div className="min-h-screen flex items-center justify-center bg-cream p-8">
-          <div className="text-center max-w-lg">
-            <h2 className="font-playfair text-2xl text-chocolate mb-4">
-              Maison Dorée — Error
-            </h2>
-            <pre className="text-left text-xs bg-gray-100 text-red-700 p-4 rounded-lg overflow-auto mb-4 whitespace-pre-wrap break-all">
-              {this.state.message}
-            </pre>
-            <p className="text-chocolate/60 text-sm">
-              Refresh the page to try again.
-            </p>
+          <div className="text-center">
+            <h2 className="font-playfair text-2xl text-chocolate mb-2">Maison Dorée</h2>
+            <p className="text-chocolate/60">Something went wrong. Please refresh the page.</p>
           </div>
         </div>
       )
