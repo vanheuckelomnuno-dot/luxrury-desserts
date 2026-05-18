@@ -1,77 +1,30 @@
 'use client'
 
-import { useEffect, useRef, useState, useCallback } from 'react'
-import dynamic from 'next/dynamic'
+import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import ErrorBoundary from '@/components/providers/ErrorBoundary'
 
 gsap.registerPlugin(ScrollTrigger)
-
-const ImmersiveScene = dynamic(() => import('@/components/three/ImmersiveScene'), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-full bg-gradient-to-br from-beige to-blush/30 animate-pulse" />
-  ),
-})
 
 export default function ImmersiveExperience() {
   const sectionRef = useRef<HTMLElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
-  const [isInView, setIsInView] = useState(false)
-  const rafRef = useRef<number | null>(null)
-
-  const handleMouseMove = useCallback((e: MouseEvent) => {
-    if (!isInView || rafRef.current !== null) return
-    rafRef.current = requestAnimationFrame(() => {
-      const rect = sectionRef.current?.getBoundingClientRect()
-      if (rect) {
-        const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2
-        const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2
-        setMousePos({ x, y })
-      }
-      rafRef.current = null
-    })
-  }, [isInView])
-
-  useEffect(() => {
-    window.addEventListener('mousemove', handleMouseMove, { passive: true })
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [handleMouseMove])
 
   useEffect(() => {
     if (!contentRef.current || !sectionRef.current) return
 
     const ctx = gsap.context(() => {
-      // Fade in the text overlay as user enters
       gsap.from('.immersive-text > *', {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'top 65%',
-          onEnter: () => setIsInView(true),
-          onLeave: () => setIsInView(false),
-          onEnterBack: () => setIsInView(true),
-          onLeaveBack: () => setIsInView(false),
         },
         opacity: 0,
         y: 40,
         stagger: 0.15,
         duration: 1.0,
         ease: 'power3.out',
-      })
-
-      // Parallax on the canvas as you scroll through
-      gsap.to('.immersive-canvas-wrap', {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1.5,
-        },
-        y: -60,
-        ease: 'none',
       })
     }, sectionRef)
 
@@ -89,13 +42,6 @@ export default function ImmersiveExperience() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
                         w-[700px] h-[700px] rounded-full bg-blush/25 blur-[160px]" />
         <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-gold/12 blur-[100px]" />
-      </div>
-
-      {/* Three.js canvas */}
-      <div className="immersive-canvas-wrap absolute inset-0 z-0">
-        <ErrorBoundary fallback={<div className="w-full h-full bg-gradient-to-br from-beige to-blush/30" />}>
-          <ImmersiveScene mousePosition={mousePos} paused={!isInView} />
-        </ErrorBoundary>
       </div>
 
       {/* Content overlay */}

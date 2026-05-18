@@ -1,19 +1,10 @@
 'use client'
 
-import { useEffect, useRef, useState, useCallback } from 'react'
-import dynamic from 'next/dynamic'
+import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
 import GlassCard from '@/components/ui/GlassCard'
 import LuxuryButton from '@/components/ui/LuxuryButton'
-import ErrorBoundary from '@/components/providers/ErrorBoundary'
-
-const HeroScene = dynamic(() => import('@/components/three/HeroScene'), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-full bg-gradient-to-br from-beige via-cream to-blush/30 animate-pulse" />
-  ),
-})
 
 const floatingStats = [
   { value: '200+', label: 'Unique creations', icon: '✦' },
@@ -24,34 +15,6 @@ const floatingStats = [
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null)
   const headingRef = useRef<HTMLDivElement>(null)
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
-  const [isInView, setIsInView] = useState(true)
-  const rafRef = useRef<number | null>(null)
-
-  const handleMouseMove = useCallback((e: MouseEvent) => {
-    if (rafRef.current !== null) return
-    rafRef.current = requestAnimationFrame(() => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 2
-      const y = (e.clientY / window.innerHeight - 0.5) * 2
-      setMousePos({ x, y })
-      rafRef.current = null
-    })
-  }, [])
-
-  useEffect(() => {
-    window.addEventListener('mousemove', handleMouseMove, { passive: true })
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [handleMouseMove])
-
-  useEffect(() => {
-    if (!sectionRef.current) return
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsInView(entry.isIntersecting),
-      { threshold: 0.1 }
-    )
-    observer.observe(sectionRef.current)
-    return () => observer.disconnect()
-  }, [])
 
   // GSAP entrance animation
   useEffect(() => {
@@ -114,13 +77,6 @@ export default function Hero() {
         <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-blush/30 blur-[120px]" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-gold/10 blur-[100px]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-beige/40 blur-[150px]" />
-      </div>
-
-      {/* Three.js Canvas — full background */}
-      <div className="absolute inset-0 z-0">
-        <ErrorBoundary fallback={<div className="w-full h-full bg-gradient-to-br from-beige via-cream to-blush/30" />}>
-          <HeroScene mousePosition={mousePos} paused={!isInView} />
-        </ErrorBoundary>
       </div>
 
       {/* Content overlay */}
