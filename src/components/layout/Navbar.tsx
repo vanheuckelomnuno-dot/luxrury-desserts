@@ -97,7 +97,7 @@ export default function Navbar() {
               className="px-5 py-2.5 rounded-full bg-chocolate text-cream text-sm font-medium
                          transition-all duration-300 hover:bg-gold hover:shadow-luxury hover:scale-105"
             >
-              Bestellen
+              Contact
             </a>
           </div>
 
@@ -154,7 +154,7 @@ export default function Navbar() {
               transition={{ delay: navLinks.length * 0.08 }}
               className="mt-4 px-8 py-3 rounded-full bg-chocolate text-cream text-base font-medium"
             >
-              Bestellen
+              Contact
             </motion.a>
           </motion.div>
         )}

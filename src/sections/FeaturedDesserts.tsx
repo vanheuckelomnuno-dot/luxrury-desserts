@@ -140,7 +140,7 @@ function DessertCard({
             className="mt-3 w-full py-2 rounded-xl bg-chocolate text-cream text-sm font-medium
                        opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           >
-            Bestel dit product
+            Interesse? Neem contact op
           </motion.button>
         </div>
       </div>
@@ -221,7 +221,7 @@ export default function FeaturedDesserts() {
             className="inline-flex items-center gap-3 px-10 py-4 rounded-full border border-chocolate/20
                        text-chocolate font-medium hover:bg-chocolate hover:text-cream transition-all duration-300 shadow-glass"
           >
-            Bekijk volledig menu
+            Neem contact op voor bestellingen
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>

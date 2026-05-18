@@ -126,7 +126,7 @@ export default function Hero() {
                   </svg>
                 </LuxuryButton>
                 <LuxuryButton href="#contact" size="lg" variant="ghost">
-                  Bestel nu
+                  Neem contact op
                 </LuxuryButton>
               </div>
 
