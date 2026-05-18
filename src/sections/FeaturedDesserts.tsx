@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -18,6 +19,7 @@ const desserts = [
     badge: 'Bestseller',
     emoji: '🌴',
     size: 'large',
+    photo: null,
   },
   {
     name: 'Chocolade Dadels Box',
@@ -29,6 +31,7 @@ const desserts = [
     badge: 'Favoriet',
     emoji: '🍫',
     size: 'medium',
+    photo: '/images/product-choco-dadels.png',
   },
   {
     name: 'Premium Notenmix',
@@ -40,6 +43,7 @@ const desserts = [
     badge: 'Ambachtelijk',
     emoji: '🥜',
     size: 'medium',
+    photo: null,
   },
   {
     name: 'Gevulde Dadels Selectie',
@@ -51,28 +55,31 @@ const desserts = [
     badge: 'Cadeau Tip',
     emoji: '🎁',
     size: 'large',
+    photo: null,
   },
   {
-    name: 'Baklava Royale',
+    name: 'Ferrero Dessert Cups',
     category: 'Desserten',
     price: '€24',
-    description: 'Krokante lagen filodeeg met pistache en natuurlijke honing. Ambachtelijk bereid.',
-    gradient: 'from-green-50/40 via-lime-50/30 to-cream',
-    accent: '#8B9E5A',
-    badge: 'Seizoens',
-    emoji: '✨',
+    description: 'Romige chocolademousse met een echte Ferrero Rocher. Ambachtelijk bereid, perfect voor elk moment.',
+    gradient: 'from-amber-900/15 via-yellow-50/40 to-cream',
+    accent: '#C8860A',
+    badge: 'Huisfavoriet',
+    emoji: '🍫',
     size: 'small',
+    photo: '/images/product-ferrero.png',
   },
   {
-    name: 'Karamel Notentaart',
+    name: 'Aardbei Panna Cotta',
     category: 'Desserten',
-    price: '€32',
-    description: 'Rijke ambachtelijke taart met gekarameliseerde hazelnoten en nougat vulling.',
-    gradient: 'from-orange-50/40 via-yellow-50/40 to-cream',
-    accent: '#E8A427',
-    badge: 'Nieuw',
-    emoji: '🎂',
+    price: '€22',
+    description: 'Zijdezachte panna cotta met verse aardbeien en frambozencoulis. Verfijnd en luchtig.',
+    gradient: 'from-pink-50/60 via-rose-50/40 to-cream',
+    accent: '#E8547A',
+    badge: 'Seizoens',
+    emoji: '🍓',
     size: 'small',
+    photo: '/images/product-panna-cotta.png',
   },
 ]
 
@@ -98,16 +105,30 @@ function DessertCard({
         ${dessert.size === 'large' ? 'row-span-2' : ''}
       `}
     >
-      {/* Gradient image placeholder */}
-      {/* Replace this div with <Image src={...} fill alt={...} className="object-cover" /> */}
+      {/* Product image */}
       <div
-        className={`w-full bg-gradient-to-br ${dessert.gradient}
+        className={`relative w-full overflow-hidden
           ${dessert.size === 'large' ? 'h-[460px]' : 'h-[220px]'}
-          transition-transform duration-700 group-hover:scale-105
-          flex items-center justify-center text-7xl
         `}
       >
-        {dessert.emoji}
+        {dessert.photo ? (
+          <Image
+            src={dessert.photo}
+            alt={dessert.name}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+          />
+        ) : (
+          <div
+            className={`w-full h-full bg-gradient-to-br ${dessert.gradient}
+              transition-transform duration-700 group-hover:scale-105
+              flex items-center justify-center text-7xl
+            `}
+          >
+            {dessert.emoji}
+          </div>
+        )}
       </div>
 
       {/* Overlay */}
