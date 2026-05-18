@@ -17,12 +17,12 @@ const dmSans = DM_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'Maison Dorée — Luxury Desserts & Pastry',
-  description: 'Artisan luxury desserts and pastries crafted with exceptional ingredients. A cinematic experience for the finest confections.',
-  keywords: 'luxury desserts, artisan pastry, premium bakery, macarons, cakes, French pastry',
+  title: 'Sami Sweets — Desserten · Dadels · Noten',
+  description: 'Ambachtelijke desserts, dadels en noten. 100% Halal & alcoholvrij. Te vinden in Delhaize en Jumbo.',
+  keywords: 'sami sweets, halal desserts, dadels, noten, ambachtelijk, alcoholvrij, delhaize, jumbo, belgische patisserie',
   openGraph: {
-    title: 'Maison Dorée — Luxury Desserts & Pastry',
-    description: 'Where every dessert is a masterpiece.',
+    title: 'Sami Sweets — Desserten · Dadels · Noten',
+    description: 'Ambachtelijk. Halal. Alcoholvrij.',
     type: 'website',
   },
 }

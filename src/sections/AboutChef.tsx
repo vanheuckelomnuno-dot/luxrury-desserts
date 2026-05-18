@@ -8,10 +8,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const achievements = [
-  { icon: '🏆', label: 'Michelin Recognition', year: '2019' },
-  { icon: '🌟', label: 'World Pastry Championship', year: '2021' },
-  { icon: '📖', label: 'Author — "L\'Art du Sucre"', year: '2022' },
-  { icon: '🎓', label: 'École Le Cordon Bleu', year: '2009' },
+  { icon: '✅', label: '100% Halal & Alcoholvrij', year: 'Altijd' },
+  { icon: '🛒', label: 'Verkrijgbaar bij Delhaize', year: 'Nu' },
+  { icon: '🏪', label: 'Verkrijgbaar bij Jumbo', year: 'Nu' },
+  { icon: '🤝', label: 'Op maat te bestellen', year: 'Altijd' },
 ]
 
 export default function AboutChef() {
@@ -74,28 +74,29 @@ export default function AboutChef() {
               <div className="chef-label flex items-center gap-3 mb-5">
                 <div className="w-10 h-px bg-gold" />
                 <span className="text-xs uppercase tracking-[0.25em] text-gold font-medium">
-                  The Artisan
+                  Het verhaal
                 </span>
               </div>
 
               <h2 className="chef-heading font-playfair text-5xl md:text-6xl font-bold text-chocolate leading-tight">
-                Chef{' '}
-                <span className="text-gradient-gold italic block">Isabelle</span>
-                <span className="text-3xl md:text-4xl font-light">Fontaine</span>
+                Over{' '}
+                <span className="text-gradient-gold italic block">Sami</span>
+                <span className="text-3xl md:text-4xl font-light">Sweets</span>
               </h2>
             </div>
 
             <div className="chef-bio space-y-4 text-chocolate/65 text-lg leading-relaxed">
               <p>
-                Born in Lyon, trained in Paris, and inspired by every corner of the world —
-                Chef Isabelle has spent two decades perfecting the alchemy of sugar and artistry.
+                Sami Sweets ontstond vanuit een passie voor ambachtelijke zoetigheden die
+                iedereen kan genieten — halal, alcoholvrij en gemaakt met de beste ingrediënten.
               </p>
               <p>
-                Her philosophy: a dessert must be experienced before it is tasted.
-                Every texture, colour, and aroma is a deliberate act of storytelling.
+                Van premium Medjoul dadels tot handgeselecteerde noten en huisgemaakte desserts —
+                elk product wordt met zorg en aandacht bereid.
               </p>
               <p>
-                Maison Dorée is her canvas. Each creation, her most intimate signature.
+                Onze producten zijn nu ook verkrijgbaar bij Delhaize en Jumbo,
+                zodat je van onze ambachtelijke kwaliteit kan genieten wanneer jij wil.
               </p>
             </div>
 
@@ -124,7 +125,7 @@ export default function AboutChef() {
               className="inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-chocolate
                          text-cream text-sm font-medium shadow-luxury hover:bg-gold transition-all duration-300"
             >
-              Book a Tasting Session
+              Neem contact op
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
@@ -144,11 +145,11 @@ export default function AboutChef() {
                 <div className="w-full h-full bg-gradient-to-br from-blush/60 via-beige to-gold/20 flex items-center justify-center">
                   <div className="text-center space-y-4">
                     <div className="w-32 h-32 rounded-full bg-chocolate/10 flex items-center justify-center mx-auto">
-                      <span className="text-6xl">👩‍🍳</span>
+                      <span className="text-6xl">🍬</span>
                     </div>
                     <div>
-                      <p className="font-playfair text-2xl font-bold text-chocolate">Chef Isabelle</p>
-                      <p className="text-gold text-sm">Maître Pâtissière</p>
+                      <p className="font-playfair text-2xl font-bold text-chocolate">Sami Sweets</p>
+                      <p className="text-gold text-sm">Ambachtelijke Zoetwaren</p>
                     </div>
                   </div>
                 </div>
@@ -174,9 +175,9 @@ export default function AboutChef() {
                 transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
               >
                 <p className="font-playfair text-sm italic text-chocolate leading-relaxed">
-                  "A dessert without passion is just sugar and flour."
+                  "Gemaakt met liefde, voor iedereen te genieten."
                 </p>
-                <p className="text-gold text-xs mt-2 font-medium">— Chef Isabelle</p>
+                <p className="text-gold text-xs mt-2 font-medium">— Sami Sweets</p>
               </motion.div>
 
               {/* Signature line */}
@@ -190,7 +191,7 @@ export default function AboutChef() {
                     <span key={i} className="text-gold text-sm">★</span>
                   ))}
                 </div>
-                <p className="text-xs text-chocolate/60 mt-1">Michelin Recommended</p>
+                <p className="text-xs text-chocolate/60 mt-1">Klanten zijn blij!</p>
               </motion.div>
             </motion.div>
           </div>

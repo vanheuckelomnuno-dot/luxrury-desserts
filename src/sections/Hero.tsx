@@ -7,9 +7,9 @@ import GlassCard from '@/components/ui/GlassCard'
 import LuxuryButton from '@/components/ui/LuxuryButton'
 
 const floatingStats = [
-  { value: '200+', label: 'Unique creations', icon: '✦' },
-  { value: '15yr', label: 'Artisan experience', icon: '◈' },
-  { value: '98%', label: 'Client satisfaction', icon: '❋' },
+  { value: '100%', label: 'Halal & Alcoholvrij', icon: '✦' },
+  { value: '3', label: 'Desserts · Dadels · Noten', icon: '◈' },
+  { value: '514+', label: 'Instagram volgers', icon: '❋' },
 ]
 
 export default function Hero() {
@@ -90,7 +90,7 @@ export default function Hero() {
               <div className="hero-label flex items-center gap-3">
                 <div className="w-8 h-px bg-gold" />
                 <span className="text-xs uppercase tracking-[0.25em] text-gold font-medium">
-                  Maison Dorée Paris
+                  Sami Sweets · Ambachtelijk · Halal
                 </span>
                 <div className="w-8 h-px bg-gold" />
               </div>
@@ -98,19 +98,19 @@ export default function Hero() {
               {/* Heading */}
               <div className="hero-heading space-y-1">
                 <h1 className="font-playfair font-bold leading-[0.95] text-chocolate">
-                  <span className="block text-6xl md:text-7xl xl:text-8xl">Where</span>
-                  <span className="block text-6xl md:text-7xl xl:text-8xl text-gradient-gold">Desire</span>
-                  <span className="block text-6xl md:text-7xl xl:text-8xl">Meets</span>
+                  <span className="block text-6xl md:text-7xl xl:text-8xl">Puur</span>
+                  <span className="block text-6xl md:text-7xl xl:text-8xl text-gradient-gold">Ambacht</span>
+                  <span className="block text-6xl md:text-7xl xl:text-8xl">Puur</span>
                   <span className="block text-5xl md:text-6xl xl:text-7xl font-light italic text-chocolate/70">
-                    Perfection
+                    Smaak
                   </span>
                 </h1>
               </div>
 
               {/* Subtitle */}
               <p className="hero-subtitle max-w-md text-chocolate/60 text-lg leading-relaxed">
-                Handcrafted luxury pastries that transcend the ordinary.
-                Each creation is a journey into pure sensory elegance.
+                Ambachtelijke desserts, premium dadels & handgeselecteerde noten.
+                100% Halal, alcoholvrij — te vinden bij Delhaize & Jumbo.
               </p>
 
               {/* CTA */}
@@ -120,13 +120,13 @@ export default function Hero() {
                   size="lg"
                   variant="primary"
                 >
-                  Explore Collection
+                  Ontdek de collectie
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </LuxuryButton>
                 <LuxuryButton href="#contact" size="lg" variant="ghost">
-                  Place an Order
+                  Bestel nu
                 </LuxuryButton>
               </div>
 
@@ -157,11 +157,11 @@ export default function Hero() {
                 <GlassCard className="px-5 py-4 max-w-xs" hover={false}>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center text-lg">
-                      🎂
+                      🥇
                     </div>
                     <div>
-                      <p className="font-playfair font-semibold text-chocolate text-sm">Season Highlight</p>
-                      <p className="text-chocolate/60 text-xs">Rose & Lychee Tart — Limited Edition</p>
+                      <p className="font-playfair font-semibold text-chocolate text-sm">100% Halal</p>
+                      <p className="text-chocolate/60 text-xs">Alcoholvrij & ambachtelijk gemaakt</p>
                     </div>
                   </div>
                 </GlassCard>
@@ -182,7 +182,7 @@ export default function Hero() {
                           <span key={i} className="text-gold text-xs">★</span>
                         ))}
                       </div>
-                      <p className="text-chocolate/60 text-xs">Rated #1 Luxury Patisserie</p>
+                      <p className="text-chocolate/60 text-xs">Beschikbaar bij Delhaize & Jumbo</p>
                     </div>
                   </div>
                 </GlassCard>
@@ -198,8 +198,8 @@ export default function Hero() {
                       <span className="text-gold text-base font-bold">✦</span>
                     </div>
                     <div>
-                      <p className="font-playfair font-semibold text-chocolate text-sm">Custom Orders</p>
-                      <p className="text-chocolate/60 text-xs">Bespoke creations for any occasion</p>
+                      <p className="font-playfair font-semibold text-chocolate text-sm">Op Maat Bestellen</p>
+                      <p className="text-chocolate/60 text-xs">Cadeaupakketten voor elk moment</p>
                     </div>
                   </div>
                 </GlassCard>

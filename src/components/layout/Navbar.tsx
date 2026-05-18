@@ -67,10 +67,10 @@ export default function Navbar() {
           {/* Logo */}
           <a href="#" className="group flex items-center gap-2">
             <div className="w-8 h-8 rounded-full bg-gold-gradient flex items-center justify-center shadow-lg">
-              <span className="text-white text-xs font-playfair font-bold">M</span>
+              <span className="text-white text-xs font-playfair font-bold">S</span>
             </div>
             <span className="font-playfair text-xl font-bold text-chocolate tracking-tight">
-              Maison <span className="text-gradient-gold">Dorée</span>
+              Sami <span className="text-gradient-gold">Sweets</span>
             </span>
           </a>
 
@@ -97,7 +97,7 @@ export default function Navbar() {
               className="px-5 py-2.5 rounded-full bg-chocolate text-cream text-sm font-medium
                          transition-all duration-300 hover:bg-gold hover:shadow-luxury hover:scale-105"
             >
-              Order Now
+              Bestellen
             </a>
           </div>
 
@@ -154,7 +154,7 @@ export default function Navbar() {
               transition={{ delay: navLinks.length * 0.08 }}
               className="mt-4 px-8 py-3 rounded-full bg-chocolate text-cream text-base font-medium"
             >
-              Order Now
+              Bestellen
             </motion.a>
           </motion.div>
         )}

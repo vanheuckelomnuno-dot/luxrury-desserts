@@ -23,7 +23,7 @@ export default class ErrorBoundary extends Component<Props, { hasError: boolean 
       return (
         <div className="min-h-screen flex items-center justify-center bg-cream p-8">
           <div className="text-center">
-            <h2 className="font-playfair text-2xl text-chocolate mb-2">Maison Dorée</h2>
+            <h2 className="font-playfair text-2xl text-chocolate mb-2">Sami Sweets</h2>
             <p className="text-chocolate/60">Something went wrong. Please refresh the page.</p>
           </div>
         </div>

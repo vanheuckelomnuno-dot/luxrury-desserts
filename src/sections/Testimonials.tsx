@@ -9,51 +9,51 @@ gsap.registerPlugin(ScrollTrigger)
 
 const testimonials = [
   {
-    name: 'Sophie Laurent',
-    role: 'Food Editor, Le Monde',
+    name: 'Fatima B.',
+    role: 'Trouwe klant',
     rating: 5,
-    text: 'Maison Dorée is not a patisserie — it is a sanctuary. Every bite of the Rose Macaron Tower transports you to another realm of pleasure entirely.',
-    avatar: '👩‍🦰',
+    text: 'De dadels van Sami Sweets zijn echt van een andere wereld. Zacht, zoet en perfect als cadeau. Ik bestel ze voor elke speciale gelegenheid!',
+    avatar: '👩',
     accent: '#FFD6E0',
   },
   {
-    name: 'Marcus Delacroix',
-    role: 'Michelin Guide Inspector',
+    name: 'Ahmed K.',
+    role: 'Klant via Delhaize',
     rating: 5,
-    text: 'In twenty years of tasting the world\'s finest pastries, Chef Isabelle\'s Champagne Entremet stands alone. Extraordinary technique, extraordinary soul.',
-    avatar: '👨‍💼',
+    text: 'Ik kocht ze toevallig bij Delhaize en was meteen verkocht. De chocolade dadels zijn geweldig en ik ben blij dat ze halal zijn. Aanrader!',
+    avatar: '👨',
     accent: '#D4AF37',
   },
   {
-    name: 'Amélie Beaumont',
-    role: 'Founder, La Belle Table',
+    name: 'Nadia V.',
+    role: 'Instagram volger',
     rating: 5,
-    text: 'We commissioned a bespoke wedding cake and received a masterpiece. Guests were moved to tears — not by sentiment, but by pure beauty.',
+    text: 'Zag ze via Instagram en meteen besteld voor een huwelijksfeest. Iedereen was onder de indruk van de kwaliteit en de prachtige verpakking.',
     avatar: '👸',
     accent: '#F6EEE3',
   },
   {
-    name: 'Jean-Pierre Moreau',
-    role: 'Chef, 3-Star Restaurant',
+    name: 'Youssef M.',
+    role: 'Klant via Jumbo',
     rating: 5,
-    text: 'I rarely say this, but Isabelle\'s mille-feuille is better than anything in my kitchen. Respect born from pure craft.',
-    avatar: '👨‍🍳',
+    text: 'Eindelijk een merk dat ambachtelijke kwaliteit combineert met halal en alcoholvrij. De notenmix is heerlijk — ik koop ze elke week bij Jumbo.',
+    avatar: '👨‍💼',
     accent: '#FFD6E0',
   },
   {
-    name: 'Isabella Chen',
-    role: 'Lifestyle Journalist',
+    name: 'Sara L.',
+    role: 'Vaste besteller',
     rating: 5,
-    text: 'The Gold Leaf Éclair literally glittered on the plate. The flavour? Impossible to describe in words — pure luxury, pure joy.',
+    text: 'De gevulde dadels met pistache zijn mijn absolute favoriet. Perfect voor de Ramadan en als dagelijks tussendoortje. Jullie zijn de beste!',
     avatar: '👩‍💻',
     accent: '#D4AF37',
   },
   {
-    name: 'Henri Fontaine',
-    role: 'Luxury Hotel Director',
+    name: 'Mohamed A.',
+    role: 'Cadeau koper',
     rating: 5,
-    text: 'Maison Dorée supplies our Presidential Suite dessert service. Our guests ask for nothing else. A partnership we treasure deeply.',
-    avatar: '🧑‍💼',
+    text: 'Heb een cadeaupakket besteld voor mijn moeder. De presentatie was prachtig en de kwaliteit onberispelijk. Ze was zo blij. Dank jullie wel!',
+    avatar: '🧑',
     accent: '#F6EEE3',
   },
 ]
@@ -176,11 +176,11 @@ export default function Testimonials() {
             <div className="w-12 h-px bg-gold" />
           </div>
           <h2 className="testimonials-heading font-playfair text-5xl md:text-6xl font-bold text-chocolate leading-tight">
-            What They{' '}
-            <span className="text-gradient-gold italic">Say</span>
+            Wat klanten{' '}
+            <span className="text-gradient-gold italic">zeggen</span>
           </h2>
           <p className="mt-4 text-chocolate/55 max-w-md mx-auto text-lg">
-            Echoes of delight from the most discerning palates in the world.
+            Echte ervaringen van mensen die genieten van onze ambachtelijke producten.
           </p>
         </div>
 
@@ -200,10 +200,10 @@ export default function Testimonials() {
           className="mt-16 flex flex-wrap items-center justify-center gap-8"
         >
           {[
-            { label: 'Michelin Recommended', icon: '🌟' },
-            { label: 'Relais Desserts Member', icon: '🏅' },
-            { label: 'World Pastry Federation', icon: '🌍' },
-            { label: 'Les Grandes Tables', icon: '✦' },
+            { label: '100% Halal gecertificeerd', icon: '✅' },
+            { label: 'Alcoholvrij', icon: '🚫' },
+            { label: 'Verkrijgbaar bij Delhaize', icon: '🛒' },
+            { label: 'Verkrijgbaar bij Jumbo', icon: '🏪' },
           ].map((badge) => (
             <div
               key={badge.label}

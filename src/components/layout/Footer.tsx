@@ -3,14 +3,13 @@
 import { motion } from 'framer-motion'
 
 const footerLinks = {
-  Collection: ['Macarons', 'Tarts', 'Entremets', 'Wedding Cakes', 'Petits Fours'],
-  Services: ['Custom Orders', 'Tasting Sessions', 'Corporate Events', 'Delivery', 'Gift Vouchers'],
-  About: ['Our Story', 'Chef Isabelle', 'Atelier', 'Press', 'Partnerships'],
+  Collectie: ['Desserten', 'Dadels', 'Noten', 'Cadeaupakketten', 'Seizoensspecials'],
+  Winkels: ['Delhaize', 'Jumbo', 'Online bestellen', 'Afhalen', 'Cadeauverpakking'],
+  Info: ['Ons verhaal', 'Halal & Alcoholvrij', 'Instagram', 'Contact', 'Samenwerking'],
 }
 
 const socialLinks = [
-  { name: 'Instagram', icon: '📸', href: '#' },
-  { name: 'Pinterest', icon: '📌', href: '#' },
+  { name: 'Instagram', icon: '📸', href: 'https://www.instagram.com/sami.sweets.desserten' },
   { name: 'Facebook', icon: '💙', href: '#' },
   { name: 'TikTok', icon: '🎵', href: '#' },
 ]
@@ -35,16 +34,16 @@ export default function Footer() {
             {/* Logo */}
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-gold-gradient flex items-center justify-center shadow-lg">
-                <span className="text-white text-sm font-playfair font-bold">M</span>
+                <span className="text-white text-sm font-playfair font-bold">S</span>
               </div>
               <span className="font-playfair text-2xl font-bold text-cream">
-                Maison <span className="shimmer-gold">Dorée</span>
+                Sami <span className="shimmer-gold">Sweets</span>
               </span>
             </div>
 
             <p className="text-cream/60 text-sm leading-relaxed max-w-xs">
-              Artisan pastry and luxury desserts crafted from the finest
-              ingredients sourced across France and beyond.
+              Ambachtelijke desserts, premium dadels & handgeselecteerde noten.
+              100% Halal & alcoholvrij. Verkrijgbaar bij Delhaize & Jumbo.
             </p>
 
             {/* Social */}
@@ -67,7 +66,7 @@ export default function Footer() {
             {/* Newsletter */}
             <div>
               <p className="text-xs text-gold uppercase tracking-widest mb-3 font-medium">
-                Join Our World
+                Blijf op de hoogte
               </p>
               <div className="flex">
                 <input
@@ -118,7 +117,7 @@ export default function Footer() {
         {/* Bottom row */}
         <div className="py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-cream/40">
           <div className="flex items-center gap-2">
-            <span suppressHydrationWarning>© {new Date().getFullYear()} Maison Dorée.</span>
+            <span suppressHydrationWarning>© {new Date().getFullYear()} Sami Sweets.</span>
             <span>All rights reserved.</span>
           </div>
 
@@ -126,7 +125,7 @@ export default function Footer() {
           <div className="flex items-center gap-3">
             <div className="w-6 h-px bg-gold/40" />
             <span className="text-gold font-playfair italic text-sm">
-              Crafted with Passion
+              Gemaakt met Passie
             </span>
             <div className="w-6 h-px bg-gold/40" />
           </div>

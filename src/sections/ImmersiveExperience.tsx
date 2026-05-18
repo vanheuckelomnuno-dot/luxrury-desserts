@@ -7,6 +7,21 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
+const stores = [
+  {
+    name: 'Delhaize',
+    emoji: '🛒',
+    description: 'Vind Sami Sweets in het dessert- en speciaalzaakrek bij jouw Delhaize.',
+    accent: '#D4AF37',
+  },
+  {
+    name: 'Jumbo',
+    emoji: '🏪',
+    description: 'Ook beschikbaar in de geselecteerde Jumbo filialen bij jou in de buurt.',
+    accent: '#FFD6E0',
+  },
+]
+
 export default function ImmersiveExperience() {
   const sectionRef = useRef<HTMLElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
@@ -16,15 +31,21 @@ export default function ImmersiveExperience() {
 
     const ctx = gsap.context(() => {
       gsap.from('.immersive-text > *', {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 65%',
-        },
+        scrollTrigger: { trigger: sectionRef.current, start: 'top 65%' },
         opacity: 0,
         y: 40,
         stagger: 0.15,
         duration: 1.0,
         ease: 'power3.out',
+      })
+      gsap.from('.store-card', {
+        scrollTrigger: { trigger: sectionRef.current, start: 'top 60%' },
+        opacity: 0,
+        y: 30,
+        stagger: 0.12,
+        duration: 0.8,
+        ease: 'power3.out',
+        delay: 0.3,
       })
     }, sectionRef)
 
@@ -35,86 +56,103 @@ export default function ImmersiveExperience() {
     <section
       ref={sectionRef}
       id="immersive"
-      className="relative min-h-[100vh] overflow-hidden bg-gradient-to-b from-cream via-beige to-cream"
+      className="relative py-28 md:py-40 overflow-hidden bg-gradient-to-b from-cream via-beige to-cream"
     >
-      {/* Background glow */}
+      {/* Background glows */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
                         w-[700px] h-[700px] rounded-full bg-blush/25 blur-[160px]" />
         <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-gold/12 blur-[100px]" />
       </div>
 
-      {/* Content overlay */}
-      <div
-        ref={contentRef}
-        className="relative z-10 min-h-[100vh] flex flex-col items-center justify-center text-center px-6"
-      >
-        <div className="immersive-text space-y-6 max-w-3xl">
+      <div ref={contentRef} className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+        <div className="immersive-text space-y-6">
+          {/* Label */}
           <div className="flex items-center justify-center gap-3">
             <div className="w-12 h-px bg-gold" />
             <span className="text-xs uppercase tracking-[0.3em] text-gold font-medium">
-              Sensory Journey
+              Verkrijgbaar in de winkel
             </span>
             <div className="w-12 h-px bg-gold" />
           </div>
 
-          <h2 className="font-playfair text-5xl md:text-7xl font-bold leading-tight text-chocolate">
-            Enter the{' '}
-            <span className="text-gradient-gold italic">World</span>
+          {/* Heading */}
+          <h2 className="font-playfair text-5xl md:text-6xl font-bold leading-tight text-chocolate">
+            Nu ook bij{' '}
+            <span className="text-gradient-gold italic">Delhaize</span>
             <br />
-            of Sweetness
+            & Jumbo
           </h2>
 
-          <p className="text-chocolate/60 text-lg md:text-xl leading-relaxed max-w-xl mx-auto">
-            An immersive universe where every floating confection is an invitation to delight.
-            Move your cursor to explore.
+          <p className="text-chocolate/60 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
+            Onze ambachtelijke desserts, premium dadels en handgeselecteerde noten zijn nu
+            verkrijgbaar bij Delhaize en Jumbo. Halal, alcoholvrij en vol smaak —
+            gewoon bij jou om de hoek.
           </p>
-
-          <div className="flex items-center justify-center gap-6 pt-4">
-            <motion.a
-              href="#desserts"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              className="px-8 py-4 rounded-full bg-chocolate/90 text-cream font-medium
-                         backdrop-blur-sm shadow-luxury hover:bg-chocolate transition-all duration-300"
-            >
-              Discover Collection
-            </motion.a>
-            <motion.a
-              href="#chef"
-              whileHover={{ scale: 1.05 }}
-              className="px-8 py-4 rounded-full glass border border-gold/20
-                         text-chocolate font-medium hover:border-gold/50 transition-all duration-300"
-            >
-              Meet the Chef
-            </motion.a>
-          </div>
         </div>
 
-        {/* Floating hint cards at edges */}
-        <motion.div
-          className="absolute left-8 top-1/2 -translate-y-1/2 hidden xl:block"
-          animate={{ x: [-4, 4, -4] }}
-          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <div className="glass rounded-2xl p-4 max-w-[160px] text-center shadow-glass">
-            <div className="text-2xl mb-2">🍩</div>
-            <p className="font-playfair text-sm font-semibold text-chocolate">12 Donuts</p>
-            <p className="text-chocolate/50 text-xs">floating in space</p>
-          </div>
-        </motion.div>
+        {/* Store cards */}
+        <div className="mt-12 grid md:grid-cols-2 gap-6">
+          {stores.map((store, i) => (
+            <motion.div
+              key={store.name}
+              className="store-card glass rounded-3xl p-8 shadow-glass text-left"
+              whileHover={{ y: -6, scale: 1.02 }}
+              transition={{ duration: 0.25 }}
+            >
+              <div className="text-5xl mb-4">{store.emoji}</div>
+              <h3 className="font-playfair text-2xl font-bold text-chocolate mb-2">{store.name}</h3>
+              <p className="text-chocolate/60 text-sm leading-relaxed">{store.description}</p>
+              <div
+                className="mt-4 inline-block px-4 py-1.5 rounded-full text-xs font-medium"
+                style={{ backgroundColor: store.accent + '22', color: store.accent, border: `1px solid ${store.accent}44` }}
+              >
+                Beschikbaar
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
-        <motion.div
-          className="absolute right-8 top-1/3 hidden xl:block"
-          animate={{ x: [4, -4, 4] }}
-          transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-        >
-          <div className="glass rounded-2xl p-4 max-w-[160px] text-center shadow-glass">
-            <div className="text-2xl mb-2">✨</div>
-            <p className="font-playfair text-sm font-semibold text-chocolate">1200+</p>
-            <p className="text-chocolate/50 text-xs">gold particles</p>
-          </div>
-        </motion.div>
+        {/* Badge row */}
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
+          {[
+            { icon: '✅', label: '100% Halal gecertificeerd' },
+            { icon: '🚫', label: 'Alcoholvrij' },
+            { icon: '🤝', label: 'Ambachtelijk bereid' },
+            { icon: '📦', label: 'Ook op bestelling' },
+          ].map((badge) => (
+            <div
+              key={badge.label}
+              className="glass px-5 py-2.5 rounded-full flex items-center gap-2 text-sm text-chocolate/70 font-medium"
+            >
+              <span>{badge.icon}</span>
+              {badge.label}
+            </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="mt-10 flex items-center justify-center gap-4 flex-wrap">
+          <motion.a
+            href="#desserts"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            className="px-8 py-4 rounded-full bg-chocolate/90 text-cream font-medium
+                       shadow-luxury hover:bg-chocolate transition-all duration-300"
+          >
+            Bekijk de collectie
+          </motion.a>
+          <motion.a
+            href="https://www.instagram.com/sami.sweets.desserten"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            className="px-8 py-4 rounded-full glass border border-gold/20
+                       text-chocolate font-medium hover:border-gold/50 transition-all duration-300"
+          >
+            📸 @sami.sweets.desserten
+          </motion.a>
+        </div>
       </div>
 
       {/* Section separator */}

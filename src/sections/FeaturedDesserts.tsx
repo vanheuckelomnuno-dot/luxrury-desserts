@@ -7,73 +7,71 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-// Replace image gradient backgrounds with real images in public/images/
-// e.g., src="/images/macaron-rose.jpg"
 const desserts = [
   {
-    name: 'Rose Macaron Tower',
-    category: 'Macarons',
-    price: '€48',
-    description: 'Delicate rose-infused French macarons, stacked into an art piece.',
-    gradient: 'from-blush via-pink-100 to-rose-50',
-    accent: '#FFD6E0',
+    name: 'Luxe Medjoul Dadels',
+    category: 'Dadels',
+    price: '€18',
+    description: 'Handgeselecteerde Medjoul dadels — de koningin onder de dadels. Zacht, groot en vol smaak.',
+    gradient: 'from-amber-800/20 via-amber-100 to-cream',
+    accent: '#C8860A',
     badge: 'Bestseller',
-    emoji: '🌹',
+    emoji: '🌴',
     size: 'large',
   },
   {
-    name: 'Grand Cru Chocolate Tart',
-    category: 'Tarts',
-    price: '€32',
-    description: '72% single-origin Madagascan chocolate on a buttery shell.',
-    gradient: 'from-amber-900/10 via-amber-50 to-cream',
+    name: 'Chocolade Dadels Box',
+    category: 'Dadels',
+    price: '€22',
+    description: 'Premium Medjoul dadels omhuld met pure of melkchocolade. Onweerstaanbaar.',
+    gradient: 'from-amber-900/15 via-amber-50 to-cream',
     accent: '#5A3825',
-    badge: 'Chef\'s Pick',
+    badge: 'Favoriet',
     emoji: '🍫',
     size: 'medium',
   },
   {
-    name: 'Mille-Feuille Royale',
-    category: 'Pastries',
-    price: '€28',
-    description: 'One thousand crispy layers, vanilla cream, gold leaf finish.',
+    name: 'Premium Notenmix',
+    category: 'Noten',
+    price: '€16',
+    description: 'Zorgvuldig geselecteerde amandelen, cashews, pistaches en walnoten. Puur en naturel.',
     gradient: 'from-yellow-50 via-amber-50 to-cream',
     accent: '#D4AF37',
-    badge: 'Classic',
-    emoji: '✨',
+    badge: 'Ambachtelijk',
+    emoji: '🥜',
     size: 'medium',
   },
   {
-    name: 'Entremets Champagne',
-    category: 'Entremets',
-    price: '€95',
-    description: 'Champagne mousse, lychee compote, rose petal glaze.',
+    name: 'Gevulde Dadels Selectie',
+    category: 'Dadels',
+    price: '€26',
+    description: 'Medjoul dadels gevuld met amandelspijs, pistache of kokos. Ideaal als cadeau.',
     gradient: 'from-pink-50 via-blush/30 to-cream',
     accent: '#FFD6E0',
-    badge: 'Limited',
-    emoji: '🥂',
+    badge: 'Cadeau Tip',
+    emoji: '🎁',
     size: 'large',
   },
   {
-    name: 'Financier aux Pistaches',
-    category: 'Petits Fours',
-    price: '€18',
-    description: 'Brown butter financiers with Sicilian pistachio cream.',
+    name: 'Baklava Royale',
+    category: 'Desserten',
+    price: '€24',
+    description: 'Krokante lagen filodeeg met pistache en natuurlijke honing. Ambachtelijk bereid.',
     gradient: 'from-green-50/40 via-lime-50/30 to-cream',
     accent: '#8B9E5A',
-    badge: 'Seasonal',
-    emoji: '🌿',
+    badge: 'Seizoens',
+    emoji: '✨',
     size: 'small',
   },
   {
-    name: 'Tarte aux Fruits Exotiques',
-    category: 'Tarts',
-    price: '€36',
-    description: 'Passion fruit curd, mango gelée, tropical flowers.',
+    name: 'Karamel Notentaart',
+    category: 'Desserten',
+    price: '€32',
+    description: 'Rijke ambachtelijke taart met gekarameliseerde hazelnoten en nougat vulling.',
     gradient: 'from-orange-50/40 via-yellow-50/40 to-cream',
     accent: '#E8A427',
-    badge: 'Summer',
-    emoji: '🌺',
+    badge: 'Nieuw',
+    emoji: '🎂',
     size: 'small',
   },
 ]
@@ -142,7 +140,7 @@ function DessertCard({
             className="mt-3 w-full py-2 rounded-xl bg-chocolate text-cream text-sm font-medium
                        opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           >
-            Order This Creation
+            Bestel dit product
           </motion.button>
         </div>
       </div>
@@ -199,11 +197,11 @@ export default function FeaturedDesserts() {
             <div className="w-12 h-px bg-gold" />
           </div>
           <h2 className="desserts-heading font-playfair text-5xl md:text-6xl font-bold text-chocolate leading-tight">
-            Featured{' '}
-            <span className="text-gradient-gold italic">Créations</span>
+            Onze{' '}
+            <span className="text-gradient-gold italic">Collectie</span>
           </h2>
           <p className="mt-4 text-chocolate/55 max-w-md mx-auto text-lg">
-            Every piece is composed with the precision of a sculptor and the soul of a poet.
+            Desserten, dadels & noten — ambachtelijk bereid, 100% halal & alcoholvrij.
           </p>
         </div>
 
@@ -223,7 +221,7 @@ export default function FeaturedDesserts() {
             className="inline-flex items-center gap-3 px-10 py-4 rounded-full border border-chocolate/20
                        text-chocolate font-medium hover:bg-chocolate hover:text-cream transition-all duration-300 shadow-glass"
           >
-            View Full Menu
+            Bekijk volledig menu
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>

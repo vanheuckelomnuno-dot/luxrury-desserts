@@ -23,12 +23,12 @@ const particles = [
 ]
 
 const occasions = [
-  'Wedding',
-  'Birthday',
-  'Corporate Event',
-  'Anniversary',
-  'Tasting Session',
-  'Custom Order',
+  'Huwelijksfeest',
+  'Verjaardag',
+  'Ramadan / Eid',
+  'Bedrijfsevent',
+  'Cadeau',
+  'Op maat',
 ]
 
 export default function Contact() {
@@ -105,18 +105,16 @@ export default function Contact() {
           <div className="contact-label flex items-center justify-center gap-3 mb-4">
             <div className="w-12 h-px bg-gold" />
             <span className="text-xs uppercase tracking-[0.3em] text-gold font-medium">
-              Reserve Your Experience
+              Neem contact op
             </span>
             <div className="w-12 h-px bg-gold" />
           </div>
           <h2 className="contact-heading font-playfair text-5xl md:text-6xl font-bold text-chocolate leading-tight">
-            Commission{' '}
-            <span className="text-gradient-gold italic">Your</span>
-            <br />
-            Masterpiece
+            Stuur ons{' '}
+            <span className="text-gradient-gold italic">een bericht</span>
           </h2>
           <p className="mt-4 text-chocolate/55 max-w-md mx-auto text-lg">
-            Every creation begins with a conversation. Tell us your vision.
+            Vraag? Bestelling? Samenwerking? We horen graag van je.
           </p>
         </div>
 
@@ -125,17 +123,17 @@ export default function Contact() {
           <div className="contact-info lg:col-span-2 space-y-8">
             <div className="glass rounded-3xl p-8 shadow-glass space-y-6">
               <div>
-                <p className="font-playfair text-2xl font-bold text-chocolate mb-2">Maison Dorée</p>
+                <p className="font-playfair text-2xl font-bold text-chocolate mb-2">Sami Sweets</p>
                 <p className="text-chocolate/55 text-sm leading-relaxed">
-                  12 Rue Saint-Honoré<br />
-                  75001 Paris, France
+                  Ambachtelijke desserts, dadels & noten<br />
+                  Halal · Alcoholvrij · Op maat
                 </p>
               </div>
 
               {[
-                { icon: '📞', label: 'Phone', value: '+33 1 42 60 XX XX' },
-                { icon: '✉️', label: 'Email', value: 'atelier@maisondoree.fr' },
-                { icon: '🕐', label: 'Hours', value: 'Tue–Sat: 9h–19h\nSun: 10h–16h' },
+                { icon: '📸', label: 'Instagram', value: '@sami.sweets.desserten' },
+                { icon: '✉️', label: 'Email', value: 'info@samisweets.be' },
+                { icon: '🛒', label: 'Winkels', value: 'Delhaize & Jumbo\nOok online te bestellen' },
               ].map((item) => (
                 <div key={item.label} className="flex gap-4">
                   <div className="w-10 h-10 rounded-xl bg-gold/10 flex items-center justify-center flex-shrink-0 text-lg">
@@ -151,25 +149,19 @@ export default function Contact() {
 
             {/* Social */}
             <div className="glass rounded-2xl p-6 shadow-glass">
-              <p className="text-xs text-gold uppercase tracking-widest mb-4 font-medium">Follow Our World</p>
-              <div className="flex gap-3">
-                {[
-                  { name: 'Instagram', icon: '📸' },
-                  { name: 'Pinterest', icon: '📌' },
-                  { name: 'TikTok', icon: '🎵' },
-                ].map((social) => (
-                  <motion.a
-                    key={social.name}
-                    href="#"
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    className="w-11 h-11 rounded-xl bg-chocolate/5 hover:bg-chocolate hover:text-cream
-                               flex items-center justify-center text-lg transition-all duration-300"
-                    title={social.name}
-                  >
-                    {social.icon}
-                  </motion.a>
-                ))}
-              </div>
+              <p className="text-xs text-gold uppercase tracking-widest mb-4 font-medium">Volg ons op Instagram</p>
+              <motion.a
+                href="https://www.instagram.com/sami.sweets.desserten"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.04, y: -2 }}
+                className="flex items-center gap-3 px-4 py-3 rounded-xl bg-chocolate/5 hover:bg-chocolate hover:text-cream
+                           transition-all duration-300 text-sm font-medium text-chocolate"
+              >
+                <span className="text-xl">📸</span>
+                @sami.sweets.desserten
+              </motion.a>
+              <p className="text-chocolate/40 text-xs mt-2">514 volgers · 27 berichten</p>
             </div>
           </div>
 
@@ -183,11 +175,11 @@ export default function Contact() {
               >
                 <div className="text-6xl mb-6">🎂</div>
                 <h3 className="font-playfair text-3xl font-bold text-chocolate mb-3">
-                  Merci beaucoup!
+                  Bedankt!
                 </h3>
                 <p className="text-chocolate/60 leading-relaxed">
-                  Your request has been received. Chef Isabelle will personally
-                  reach out within 24 hours to begin crafting your vision.
+                  Je bericht is ontvangen. We nemen zo snel mogelijk contact met je op,
+                  normaal gezien binnen 24 uur.
                 </p>
                 <div className="mt-6 flex gap-0.5 justify-center">
                   {[...Array(5)].map((_, i) => (
@@ -300,14 +292,14 @@ export default function Contact() {
                              hover:bg-gold transition-all duration-300 shadow-luxury
                              flex items-center justify-center gap-3"
                 >
-                  Send My Request
+                  Stuur bericht
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                   </svg>
                 </motion.button>
 
                 <p className="text-center text-xs text-chocolate/40">
-                  We respond personally within 24 hours. Your details remain confidential.
+                  We antwoorden persoonlijk binnen 24 uur. Jouw gegevens blijven vertrouwelijk.
                 </p>
               </form>
             )}
